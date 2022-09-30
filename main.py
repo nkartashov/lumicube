@@ -57,10 +57,8 @@ def monochrome_main(step):
 
 
 def run_mode_switcher(state: State):
-    if buttons.top_pressed_count % 2 == 0:
-        state.set_mode(MODE.LAVA)
-    else:
-        state.set_mode(MODE.MONOCHROME)
+    mode_to_set = buttons.top_pressed_count % len(MODE)
+    state.set_mode(MODE(mode_to_set))
 
 
 def main():
